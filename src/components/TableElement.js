@@ -1,48 +1,37 @@
-//
 // Requires state.items
-
 import React, {Component} from 'react';
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn
-} from 'material-ui/Table';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow} from 'material-ui/Table';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-// Custom Components //
+// Custom Components
 import TableItem from './TableItem'
-// ----------------- //
+// -----------------
 
 class TableElement extends Component {
-  function renderTableItems() {
+  renderTableItems() {
     let TableItems;
-    for(let item in this.items) {
-      TableItems += (
-        <TableItem
-          isSelected={item.isSelected}
-          originName={item.origin.name}
-          renameName={item.rename.name}
-          originPath={item.origin.path}
-        />
-      )
+    for (let item in this.props.items) {
+      TableItems += <TableItem isSelected={item.isSelected} originName={item.origin.name} renameName={item.rename.name} originPath={item.origin.path}/>
     }
-    return TableItems;
+    return (<TableBody>{TableItems}</TableBody>);
   }
 
   render() {
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHeaderColumn>Original File Name</TableHeaderColumn>
-          <TableHeaderColumn>Renamed File Name</TableHeaderColumn>
-          <TableHeaderColumn>Path</TableHeaderColumn>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {this.renderTableItems()}
-      </TableBody>
-    </Table>
+    return (
+      <MuiThemeProvider>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderColumn>Original File Name</TableHeaderColumn>
+              <TableHeaderColumn>Renamed File Name</TableHeaderColumn>
+              <TableHeaderColumn>Path</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          {this.renderTableItems()}
+        </Table>
+      </MuiThemeProvider>
+    )
   }
 }
 
-export TableElement
+export default TableElement
