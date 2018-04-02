@@ -33,3 +33,7 @@ state: {
     }
   ]
 }
+
+{
+  titleBar: 'onClickFunction'
+}

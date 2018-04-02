@@ -11,5 +11,5 @@ export default function TableItem(props) {
       <TableRowColumn>{props.renameName}</TableRowColumn>
       <TableRowColumn>{props.originPath}</TableRowColumn>
     </TableRow>
-  )
+  );
 }
