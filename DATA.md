@@ -3,35 +3,40 @@ state: {
     {
       origin: {
         path: '/path/to/file.txt',
-        name: 'file.txt',
+        base: 'file.txt',
         ext: 'txt',
-        directory: false
+        dirname: '/path/to/',
       },
       rename: {
         path: '/path/to/newFILE.txt',
-        name: 'newFILE.txt'
+        base: 'newFILE.txt'
         ext: 'txt',
-        directory: false
+        dirname: '/path/to/',
       },
       regex: '/abc/',
-      isSelected: true
+      isSelected: true,
+      isDirectory: 'false',
+      isDuplicate: false
     }, {
       origin: {
         path: '/path/to/folder',
-        name: 'folder',
+        base: 'folder',
         ext: '',
-        directory: true
+        dirname: '/path/to/',
       },
       rename: {
         path: '/path/to/newFolder',
-        name: 'newFolder'
+        base: 'newFolder'
         ext: '',
-        directory: true
+        dirname: '/path/to/',
       },
       regex: '/abc/',
-      isSelected: false
+      isSelected: false,
+      isDirectory: 'true',
+      isDuplicate: false
     }
-  ]
+  ],
+  copy: [1, 2],
 }
 
 {
